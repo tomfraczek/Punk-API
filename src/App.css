@@ -120,7 +120,7 @@
 }
 
 .loading-spinner {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite 2s linear;
   height: 100px;
   pointer-events: none;
   position:absolute;
