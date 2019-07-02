@@ -5,10 +5,6 @@ import '../App.css';
 
 const SingleBeer = (props) => {
 
-
-
-    console.log(props.beers)
-
     return(
         props.beers.map((beer) =>
 
@@ -22,13 +18,25 @@ const SingleBeer = (props) => {
                     <img className={'beer-link--img'} src={`${beer.image_url}`} />
 
                     <div className="beer-link--right">
-                        <p className={'beer-link-info'}>Contributed by: {beer.contributed_by.replace(beer.contributed_by.split(' ')[2], '')}</p>
-                        <p className={'beer-link-info'}>First brewed: {beer.first_brewed}</p>
-                        <p className={'beer-link-info'}>PH: {beer.ph}</p>
-                        <p className={'beer-link-info'}>SRM: {beer.srm ? beer.srm : 'NO DATA'}</p>
-                        <p className={'beer-link-info'}>IBU: {beer.ibu ? beer.ibu : 'NO DATA'}</p>
-                        <p className={'beer-link-info'}>Volume: {beer.volume.value} {beer.volume.unit}</p>
-
+                        {
+                            beer.contributed_by ? <p className={'beer-link-info'}>Contributed by: {beer.contributed_by.replace(beer.contributed_by.split(' ')[2], '')}</p> : null
+                        }
+                        {
+                            beer.first_brewed ? <p className={'beer-link-info'}>First brewed: {beer.first_brewed}</p> : null
+                        }
+                        {
+                            beer.ph ? <p className={'beer-link-info'}>PH: {beer.ph}</p> : null
+                        }
+                        {
+                            beer.srm ? <p className={'beer-link-info'}>SRM: {beer.srm}</p> : null
+                        }
+                        {
+                            beer.ibu ? <p className={'beer-link-info'}>IBU: {beer.ibu}</p> : null
+                        }
+                        {
+                            beer.volume ? <p className={'beer-link-info'}>Volume: {beer.volume.value} {beer.volume.unit}</p> : null
+                        }
+                        
                             <Link to={`/beer/${beer.id}`}>
                                 <button className="beer-link--read-more">
                                    Read More
