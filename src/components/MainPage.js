@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import spinner from '../assets/spinner.svg'
 import '../App.css';
 
@@ -15,7 +15,7 @@ const SingleBeer = (props) => {
                 </div>
 
                 <div className="beer-link--bottom">
-                    <img className={'beer-link--img'} src={`${beer.image_url}`} />
+                    <img className={'beer-link--img'} src={`${beer.image_url}`} alt={beer.name} />
 
                     <div className="beer-link--right">
                         {
@@ -130,7 +130,7 @@ class MainPage extends Component {
                             ? <SingleBeer
                                 beers={this.state.beers}
                             />
-                            : <img className={'loading-spinner'} src={spinner}/>
+                            : <img className={'loading-spinner'} src={spinner} alt='Loading'/>
                     }
                 </div>
             </div>
